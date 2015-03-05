@@ -49,14 +49,33 @@
 				</section>
 
 				<section>
-					<h2>Code sharing</h2>
-					<p>
-						<ul>
-							<li>Need to use a popular PHP library?</li>
-							<li>"Simply" use a PHP Library in ALL your PHP Projects, Drupal, Symfony2, etc</li>
-							<li>... that's the theory...</li>
-						</ul>
-					</p>
+                    <section>
+                        <h2>Code sharing</h2>
+                        <p>
+                            <ul>
+                                <li>Need to include a popular PHP library in your project?</li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Old days</h2>
+                        <p>
+                            <ul>
+                                <li>require '../libs/something.php</li>
+                                <li>Updates: just copy and paste new libraries to your folder</li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Now..</h2>
+                        <p>
+                            <ul>
+                                <li>Need to use a popular PHP library?</li>
+                                <li>"Simply" use a PHP Library in ALL your PHP Projects, Drupal, Symfony2, etc</li>
+                                <li>... that's the theory...</li>
+                            </ul>
+                        </p>
+                    </section>
 				</section>
 
                 <section>
@@ -122,7 +141,7 @@
 				<section>
 					<section>
 						<h2>How has the Drupal community solved this?</h2>
-						<p>How the Drupal community references PHP libraries in their.</p>
+						<p>How the Drupal community references PHP libraries in Drupal modules/projects.</p>
 					</section>
 				</section>
 				<section>
@@ -190,7 +209,8 @@ function commerce_stripe_libraries_info() {
                         <h2>Drupal 7 Solution #2 - <a href="https://www.drupal.org/project/composer_manager">Composer Manager</a></h2>
                         <p>
                             <ul>
-                                <li>Each project has a composer.json</li>
+                                <li>Composer Manager allows contributed modules to depend on PHP libraries managed via Composer.</li>
+                                <li>Each module has a composer.json</li>
                                 <li>Use drush or admin UI to manage installation</li>
                             </ul>
                         </p>
