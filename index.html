@@ -59,11 +59,72 @@
 					</p>
 				</section>
 
+                <section>
+                    <section>
+                        <h2>How has the PHP community solved this?</h2>
+                        <ul>
+                            <li>Composer!<br /><img src="/images/logo-composer-transparent.png"></li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>composer.json</h2>
+                        <ul>
+                            <li>Inside of your PHP project, have a composer.json in your root directory</li>
+                            <li>Run `composer install`</li>
+                            <li>All your libraries &amp; dependencies are pulled in automatically!</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>What this file contains:</h2>
+                        <ul>
+                            <li>A JSON markup file with all the information about the project</li>
+                            <li>All your dependencies</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Step 1: About the project</h2>
+                        <pre><code>
+{
+    "name": "joshtaylor/some-project",
+    "description": "Some project",
+    "keywords": ["Something", "else"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name":      "Josh Taylor",
+            "email":     "joshuataylorx@gmail.com",
+            "homepage":  "http://joshtaylor.id.au"
+        },
+    ],
+}
+                    </code></pre>
+                    </section>
+                    <section>
+                        <h2>Step 2: Your dependencies</h2>
+                        <pre><code>
+...
+    "require": {
+    "stripe/stripe-php": ""
+    }
+...
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Step 3: composer install</h2>
+                            <video controls="controls">
+                                <source src="/videos/composer-install.mp4" type="video/mp4" />
+                            </video>
+
+                    </section>
+                </section>
+
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>Solution to including a library?</h2>
-						<p>How the Drupal community has tried to solve this.</p>
+						<h2>How has the Drupal community solved this?</h2>
+						<p>How the Drupal community references PHP libraries in their code.</p>
 					</section>
 				</section>
 				<section>
@@ -124,6 +185,53 @@ function commerce_stripe_libraries_info() {
 							<li>Manual copying of code is tedious..</li>
 						</ul>
 					</section>
+				</section>
+
+				<section>
+                    <section>
+                        <h2>Drupal 7 Solution #2 - <a href="https://www.drupal.org/project/composer_manager">Composer Manager</a></h2>
+                        <p>
+                            <ul>
+                                <li>Each project has a composer.json</li>
+                                <li>Use drush or admin UI to manage installation</li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Step 1: Setup composer.json in your module:</h2>
+                        <pre>
+                        <code data-trim>
+{
+    "require": {
+        "stripe/stripe-php": "2.1.1"
+    }
+}
+</code>
+                            </pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Step 2: Enable module</h2>
+                        <ul>
+                            <li>drush en -y someproject</li>
+                            <li>Composer manager will pull in the projects + dependencies</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <pre>
+                            <video controls="controls">
+                                <source src="/videos/composer-manager-install.mp4" type="video/mp4" />
+                            </video>
+                        </pre>
+                    </section>
+                    <section>
+                        <h2>Step 3: Success!</h2>
+                        <ul>
+                            <li>Module now has composer.json, without needing dirtyish hacks</li>
+                            <li>Makes developers lives much easier</li>
+                            <li>Easier to deploy.</li>
+                        </ul>
+                    </section>
 				</section>
 
 			</div>
