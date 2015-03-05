@@ -53,7 +53,7 @@
 					<p>
 						<ul>
 							<li>Need to use a popular PHP library?</li>
-							<li>Simply use this PHP Library in ALL your PHP Projects, Drupal, Symfony2, etc</li>
+							<li>"Simply" use a PHP Library in ALL your PHP Projects, Drupal, Symfony2, etc</li>
 							<li>... that's the theory...</li>
 						</ul>
 					</p>
@@ -72,7 +72,7 @@
                         <ul>
                             <li>Inside of your PHP project, have a composer.json in your root directory</li>
                             <li>Run `composer install`</li>
-                            <li>All your libraries &amp; dependencies are pulled in automatically!</li>
+                            <li>All your libraries &amp; dependencies are pulled in automatically</li>
                         </ul>
                     </section>
 
@@ -104,16 +104,14 @@
                     <section>
                         <h2>Step 2: Your dependencies</h2>
                         <pre><code>
-...
     "require": {
     "stripe/stripe-php": ""
     }
-...
                         </code></pre>
                     </section>
                     <section>
                         <h2>Step 3: composer install</h2>
-                            <video controls="controls">
+                            <video controls="controls" data-autoplay>
                                 <source src="videos/composer-install.mp4" type="video/mp4" />
                             </video>
 
@@ -313,10 +311,110 @@ function commerce_stripe_libraries_info() {
                         <img src="images/drupal-packagist.png">
                     </section>
                     <section>
+                        <h2>Create your composer.json</h2>
+                        <ul>
+                            <li>Create your composer.json (as seen before)</li>
+                        </ul>
+                        <pre><code>
+{
+    "name": "drupal/awesome_field",
+    "description": "Awesome module for making awesome field types.",
+    "keywords": ["Drupal", "Awesome"],
+    "type": "drupal-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name":      "Josh Taylor",
+            "email":     "joshtaylorx@gmail.com",
+            "homepage":  "http://joshtaylor.id.au"
+        },
+    ],
+    "require": {
+        "php": ">=5.4.5"
+    },
+    "require-dev": {
+        "drupal/drupal": "8.0.0-beta7"
+    },
+    "autoload": {
+        "psr-4": {"joshtaylor\\awesomesauce\\": "src"}
+    }
+}</code></pre>
+                    </section>
+                    <section>
+                        <h2>Validate your composer.json</h2>
+                        <ul>
+                            <li>Run `composer validate`, make sure it is valid. Composer is very strict.</li>
+                        </ul>
+                        <img src="images/composer-validate.png">
+                    </section>
+                    <section>
                         <h2>Submitting your awesome new library</h2>
                         <ul>
-                            <li>
-
+                            <li>Signup for an account on packagist.org, then click "Submit Package"</li>
+                        </ul>
+                        <img src="images/packagist-add.png">
+                    </section>
+                    <section>
+                        <h2>But all our code isn't opensource!</h2>
+                        <ul>
+                            <li>Packagist.org is opensource! Have your own private packagist repository for your company!</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>But what if GitHub/Drupal.org/Bitbucket goes offline?</h2>
+                        <ul>
+                            <li>Toran Proxy, free for personal use, small fee for commercial.</li>
+                            <li>Run by the creator of composer, so it goes towards funding composer development.</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>PHP Libraries spun from Drupal 8.x contrib development</h2>
+                        <ul>
+                            <li>Commerce 2.x is being developed, and is a rewrite and a rethink from the ground up</li>
+                            <li>Why reinvent the wheel when other projects such as Magento, Sylius and hundreds of other PHP eCommerce solutions exist?</li>
+                            <li>Can we work together towards a common goal? Can we not reinvent the wheel for each project?</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>commerceguys/addressing</h2>
+                        <ul>
+                            <li>Address formats for 200 countries</li>
+                            <li>Subdivisions (administrative areas, localities, dependent localities) for 40 countries</li>
+                            <li>Subdivision translations for all of the parent country's (i.e Canada, Switzerland) official languages.</li>
+                            <li>Validation (via Symfony Validator)</li>
+                            <li>Form generation (via Symfony Form)</li>
+                            <li>Postal formatting</li>
+                            <li>Zones via the commerceguys/zone library.</li>
+                            <li>The dataset is stored locally in JSON format, generated from Google's Address Data Service.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>commerceguys/tax</h2>
+                        <ul>
+                            <li>Smart data model designed for fluctuating tax rate amounts ("19% -> 21% on January 1st")</li>
+                            <li>Predefined tax rates for countries, calculate taxes in countries you sell in.</li>
+                            <li>Tax resolvers with logic for all major use cases.</li>
+                            <li>Australian GST Pull Request incoming for this :).</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>commerceguys/pricing</h2>
+                        <ul>
+                            <li>Format a price for any currency and location</li>
+                            <li>10.5123 -> $10.51AUD for example</li>
+                            <li>Can tie in with florianv/swap for up to date currency conversion</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>commerceguys/zone</h2>
+                        <ul>
+                            <li>Zones are territorial groupings mostly used for shipping or tax purposes.</li>
+                            <li>A zone can match other zones, countries, subdivisions (states/provinces/municipalities), postal codes.</li>
+                            <li>Postal codes can also be expressed using ranges or regular expressions.</li>
+                            <li>Example: Suburbs in Australia, grouped by Post Code as some are shared</li>
+                            <li>Calculate pricing easier in eCommerce</li>
                         </ul>
                     </section>
                 </section>
