@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>There is a PHP Library for that</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>There is a PHP Library for that</h1>
+					<h3>Reusable code in your drupal projects</h3>
+					<p>
+						<small>Josh Taylor<br /><a href="https://twitter.com/joshtaylor">@joshtaylor</a> / <a href="https://drupal.org/u/joshtaylor">drupal.org/u/joshtaylor</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Code sharing</h2>
+					<p>
+						<ul>
+							<li>Need to use a popular PHP library?</li>
+							<li>Simply use this PHP Library in ALL your PHP Projects, Drupal, Symfony2, etc</li>
+							<li>... never how it ends up working in major Drupal 7 projects...</li>
+						</ul>
+					</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Solution to including a library?</h2>
+						<p>How the Drupal community has tried to solve this.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Drupal 7 Solution #1 - <a href="https://www.drupal.org/project/libraries">Libraries</a></h2>
+						<p>
+							<ul>
+								<li>Includes a Drupal API for referencing libraries</li>
+								<li>Download library manually and put it in sites/all/libraries</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>Step 1: Install hook requirements:</h2>
+						<pre>
+						<code data-trim>
+if (file_exists(libraries_get_path('stripe-php') . '/lib/Stripe.php')) {
+  $requirements['commerce_stripe_php'] = array(
+    'value' => $t('Installed'),
+    'severity' => REQUIREMENT_OK,
+  );
+}
+</code>
+						    </pre>
+						</p>
+					</section>
+					<section>
+						<h2>Step 2: hook_libraries_info</h2>
+						<pre>
+						<code data-trim>
+function commerce_stripe_libraries_info() {
+  return array(
+    'stripe-php' => array(
+      'name' => 'Stripe API Client Library for PHP',
+      'vendor url' => 'https://stripe.com/',
+      'download url' => 'https://github.com/stripe/stripe-php',
+      'dependencies' => array(),
+      'version arguments' => array(
+        'file' => 'VERSION',
+        'pattern' => '/(1.\d+(\.\d+)?)/',
+      ),
+      'files' => array(
+        'php' => array(
+          'lib/Stripe.php',
+        ),
+      ),
+    ),
+  );
+}
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Step 3: Success?</h2>
+						<ul>
+							<li>Do you commit this library into your source control, ala Drupal core style?</li>
+							<li>How do you manage library updates?</li>
+							<li>Manual copying of code is tedious..</li>
+						</ul>
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
