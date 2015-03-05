@@ -54,7 +54,7 @@
 						<ul>
 							<li>Need to use a popular PHP library?</li>
 							<li>Simply use this PHP Library in ALL your PHP Projects, Drupal, Symfony2, etc</li>
-							<li>... never how it ends up working in major Drupal 7 projects...</li>
+							<li>... that's the theory...</li>
 						</ul>
 					</p>
 				</section>
@@ -124,7 +124,7 @@
 				<section>
 					<section>
 						<h2>How has the Drupal community solved this?</h2>
-						<p>How the Drupal community references PHP libraries in their code.</p>
+						<p>How the Drupal community references PHP libraries in their.</p>
 					</section>
 				</section>
 				<section>
@@ -234,6 +234,91 @@ function commerce_stripe_libraries_info() {
                     </section>
 				</section>
 
+                <section>
+                    <section>
+                        <h2>Drupal 8 Solution #1 - <a href="https://www.drupal.org/project/composer_manager">Composer Manager</a></h2>
+                        <p>
+                            <ul>
+                                <li>Each module has a composer.json</li>
+                                <li>Use drush or admin UI to manage installation</li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Step 1: Setup composer.json in your module:</h2>
+                        <pre>
+                        <code data-trim>
+{
+    "require": {
+        "stripe/stripe-php": "2.1.1"
+    }
+}
+</code>
+                            </pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Step 2: Enable composer_manager</h2>
+                        <ul>
+                            <li>drush en -y composer_manager</li>
+                            <li>Composer manager will now install</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Step 3: `composer drupal-update`</h2>
+                        <ul>
+                            <li>Inside your core/ directory run composer drupal-update.</li>
+                            <li>This rebuilds core/composer.json and downloads the new module's requirements.</li>
+                            <li>Install your modules as per usual</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <pre>
+                            <video controls="controls">
+                                <source src="/videos/composer-manager-install.mp4" type="video/mp4" />
+                            </video>
+                        </pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>How to create libraries with composer?</h2>
+                        <ol>
+                            <li>Create new awesome library</li>
+                            <li>Create composer.json</li>
+                            <li>Submit it to packagist</li>
+                            <li>Celebrate</li>
+                        </ol>
+                    </section>
+                    <section>
+                        <h2>Packagist.org</h2>
+                        <ul>
+                            <li>Repository of PHP libraries</li>
+                        </ul>
+                        <img src="/images/packagist.jpg">
+                    </section>
+                    <section>
+                        <h2>Finding libraries</h2>
+                        <ul>
+                            <li>Use the search functionality to find libraries</li>
+                        </ul>
+                        <img src="/images/packagist-search.png">
+                    </section>
+                    <section>
+                        <h2>Drupal Packagist</h2>
+                        <ul>
+                            <li>packagist.drupal-composer.org, the drupal module of packagist.</li>
+                            <li>Concept for where the drupal modules can be used with composer.</li>
+                        </ul>
+                        <img src="/images/drupal-packagist.png">
+                    </section>
+                    <section>
+                        <h2>Submitting your awesome new library</h2>
+                        <ul>
+
+                        </ul>
+                    </section>
+                </section>
 			</div>
 
 		</div>
